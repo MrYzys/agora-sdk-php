@@ -16,7 +16,7 @@
 使用Composer安装：
 
 ```bash
-composer require agora/rtc-server-sdk
+composer require betterus/agora-sdk-php
 ```
 
 ## 快速开始
