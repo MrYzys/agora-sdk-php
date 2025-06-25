@@ -123,7 +123,6 @@ try {
     */
 
     echo "=== 示例完成 ===\n";
-
 } catch (AgoraException $e) {
     echo "Agora错误：\n";
     echo "  错误类型：{$e->getErrorCode()}\n";
