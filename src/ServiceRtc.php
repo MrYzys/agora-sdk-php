@@ -21,7 +21,7 @@ class ServiceRtc extends Service
 
     public function pack()
     {
-        return ServiceRtc . phpparent::pack() . Util::packString($this->channelName) . Util::packString($this->uid);
+        return parent::pack() . Util::packString($this->channelName) . Util::packString($this->uid);
     }
 
     public function unpack(&$data)

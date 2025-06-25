@@ -53,7 +53,7 @@ class Util
 
     public static function packString($str)
     {
-        return Util . phpself::packUint16(strlen($str)) . $str;
+        return self::packUint16(strlen($str)) . $str;
     }
 
     public static function unpackString(&$data)
@@ -69,9 +69,9 @@ class Util
         ksort($arr);
         $kv = "";
         foreach ($arr as $key => $val) {
-            $kv .= Util . phpself::packUint16($key) . self::packUint32($val);
+            $kv .= self::packUint16($key) . self::packUint32($val);
         }
-        return Util . phpself::packUint16(count($arr)) . $kv;
+        return self::packUint16(count($arr)) . $kv;
     }
 
     public static function unpackMapUint32(&$data)

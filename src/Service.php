@@ -23,7 +23,7 @@ class Service
 
     public function pack()
     {
-        return Service . phpUtil::packUint16($this->type) . Util::packMapUint32($this->privileges);
+        return Util::packUint16($this->type) . Util::packMapUint32($this->privileges);
     }
 
     public function unpack(&$data)

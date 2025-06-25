@@ -24,7 +24,7 @@ class ServiceApaas extends Service
 
     public function pack()
     {
-        return ServiceApaas . phpparent::pack() . Util::packString($this->roomUuid) . Util::packString($this->userUuid) . Util::packInt16($this->role);
+        return parent::pack() . Util::packString($this->roomUuid) . Util::packString($this->userUuid) . Util::packInt16($this->role);
     }
 
     public function unpack(&$data)

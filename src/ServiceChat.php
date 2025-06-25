@@ -17,7 +17,7 @@ class ServiceChat extends Service
 
     public function pack()
     {
-        return ServiceChat . phpparent::pack() . Util::packString($this->userId);
+        return parent::pack() . Util::packString($this->userId);
     }
 
     public function unpack(&$data)

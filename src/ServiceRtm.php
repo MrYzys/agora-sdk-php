@@ -16,7 +16,7 @@ class ServiceRtm extends Service
 
     public function pack()
     {
-        return ServiceRtm . phpparent::pack() . Util::packString($this->userId);
+        return parent::pack() . Util::packString($this->userId);
     }
 
     public function unpack(&$data)
