@@ -28,16 +28,16 @@ composer require agora/rtc-server-sdk
 
 require_once 'vendor/autoload.php';
 
-use Agora\RtcSdk\AgoraRtcSdk;
+use Agora\Sdk\AgoraSdk;
 
 // 基础配置（仅Token生成）
-$sdk = AgoraRtcSdk::create(
+$sdk = AgoraSdk::create(
     'your_app_id',
     'your_app_certificate'
 );
 
 // 完整配置（包含RESTful API功能）
-$sdk = AgoraRtcSdk::create(
+$sdk = AgoraSdk::create(
     'your_app_id',
     'your_app_certificate',
     'your_customer_id',      // 用于RESTful API认证
@@ -72,7 +72,7 @@ echo "用户Token：" . $userToken['token'] . "\n";
 
 ```php
 // 配置云存储
-use Agora\RtcSdk\CloudRecording\CloudRecordingClient;
+use Agora\Sdk\CloudRecording\CloudRecordingClient;
 
 $storageConfig = CloudRecordingClient::createStorageConfig(
     CloudRecordingClient::VENDOR_AMAZON_S3,  // 云存储厂商
@@ -155,7 +155,7 @@ try {
 $token = $sdk->generateToken(
     'channel_name',
     12345,                                    // 用户ID
-    \Agora\RtcSdk\TokenBuilder\RtcTokenBuilder2::ROLE_PUBLISHER,
+    \Agora\Sdk\TokenBuilder\RtcTokenBuilder2::ROLE_PUBLISHER,
     3600                                      // 过期时间（秒）
 );
 
@@ -163,7 +163,7 @@ $token = $sdk->generateToken(
 $token = $sdk->generateToken(
     'channel_name',
     12346,
-    \Agora\RtcSdk\TokenBuilder\RtcTokenBuilder2::ROLE_SUBSCRIBER,
+    \Agora\Sdk\TokenBuilder\RtcTokenBuilder2::ROLE_SUBSCRIBER,
     3600
 );
 ```
@@ -187,7 +187,7 @@ $token = $sdk->generateTokenWithPrivileges(
 #### 存储配置
 
 ```php
-use Agora\RtcSdk\CloudRecording\CloudRecordingClient;
+use Agora\Sdk\CloudRecording\CloudRecordingClient;
 
 // Amazon S3
 $storageConfig = CloudRecordingClient::createStorageConfig(
@@ -245,7 +245,7 @@ $recordingConfig = [
 ## 错误处理
 
 ```php
-use Agora\RtcSdk\Exceptions\AgoraException;
+use Agora\Sdk\Exceptions\AgoraException;
 
 try {
     $token = $sdk->generateToken('test_channel', 12345);

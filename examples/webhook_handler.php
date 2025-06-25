@@ -6,9 +6,9 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Agora\RtcSdk\AgoraRtcSdk;
-use Agora\RtcSdk\Webhook\EventParser;
-use Agora\RtcSdk\Exceptions\AgoraException;
+use Agora\Sdk\AgoraRtcSdk;
+use Agora\Sdk\Webhook\EventParser;
+use Agora\Sdk\Exceptions\AgoraException;
 
 // 配置信息
 $config = [

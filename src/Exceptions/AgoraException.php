@@ -1,13 +1,13 @@
 <?php
 
-namespace Agora\RtcSdk\Exceptions;
+namespace Agora\Sdk\Exceptions;
 
 use Exception;
 
 /**
  * Agora异常类
  *
- * @package Agora\RtcSdk\Exceptions
+ * @package Agora\Sdk\Exceptions
  */
 class AgoraException extends Exception
 {

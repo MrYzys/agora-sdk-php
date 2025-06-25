@@ -102,7 +102,7 @@ if (file_exists('config/agora.php') && file_exists('vendor/autoload.php')) {
         $config = require 'config/agora.php';
         
         if (!empty($config['app_id']) && !empty($config['app_certificate'])) {
-            $sdk = \Agora\RtcSdk\AgoraRtcSdk::create(
+            $sdk = \Agora\Sdk\AgoraSdk::create(
                 $config['app_id'],
                 $config['app_certificate']
             );

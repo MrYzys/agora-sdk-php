@@ -4,12 +4,12 @@
  * Agora RTC SDK 完整功能演示
  */
 
-require_once 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
-use Agora\RtcSdk\AgoraRtcSdk;
-use Agora\RtcSdk\CloudRecording\CloudRecordingClient;
-use Agora\RtcSdk\TokenBuilder\RtcTokenBuilder2;
-use Agora\RtcSdk\Exceptions\AgoraException;
+use Agora\Sdk\AgoraRtcSdk;
+use Agora\Sdk\CloudRecording\CloudRecordingClient;
+use Agora\Sdk\TokenBuilder\RtcTokenBuilder2;
+use Agora\Sdk\Exceptions\AgoraException;
 
 echo "🚀 Agora RTC SDK for PHP - 完整功能演示\n";
 echo "========================================\n\n";
@@ -27,7 +27,7 @@ try {
     echo "📱 1. 初始化SDK\n";
     echo "   App ID: {$config['app_id']}\n";
     echo "   SDK版本: " . AgoraRtcSdk::getVersion() . "\n\n";
-    
+
     $sdk = AgoraRtcSdk::create(
         $config['app_id'],
         $config['app_certificate'],

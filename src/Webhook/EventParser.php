@@ -1,13 +1,13 @@
 <?php
 
-namespace Agora\RtcSdk\Webhook;
+namespace Agora\Sdk\Webhook;
 
-use Agora\RtcSdk\Exceptions\AgoraException;
+use Agora\Sdk\Exceptions\AgoraException;
 
 /**
  * Webhook事件解析器
  *
- * @package Agora\RtcSdk\Webhook
+ * @package Agora\Sdk\Webhook
  */
 class EventParser
 {

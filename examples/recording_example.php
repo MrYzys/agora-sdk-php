@@ -6,9 +6,9 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Agora\RtcSdk\AgoraRtcSdk;
-use Agora\RtcSdk\CloudRecording\CloudRecordingClient;
-use Agora\RtcSdk\Exceptions\AgoraException;
+use Agora\Sdk\AgoraRtcSdk;
+use Agora\Sdk\CloudRecording\CloudRecordingClient;
+use Agora\Sdk\Exceptions\AgoraException;
 
 // 配置信息
 $config = [

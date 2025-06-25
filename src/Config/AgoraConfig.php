@@ -1,11 +1,11 @@
 <?php
 
-namespace Agora\RtcSdk\Config;
+namespace Agora\Sdk\Config;
 
 /**
  * Agora配置类
  *
- * @package Agora\RtcSdk\Config
+ * @package Agora\Sdk\Config
  */
 class AgoraConfig
 {

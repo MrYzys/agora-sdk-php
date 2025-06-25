@@ -1,14 +1,14 @@
 <?php
 
-namespace Agora\RtcSdk\Http;
+namespace Agora\Sdk\Http;
 
-use Agora\RtcSdk\Config\AgoraConfig;
-use Agora\RtcSdk\Exceptions\AgoraException;
+use Agora\Sdk\Config\AgoraConfig;
+use Agora\Sdk\Exceptions\AgoraException;
 
 /**
  * HTTP客户端类
  *
- * @package Agora\RtcSdk\Http
+ * @package Agora\Sdk\Http
  */
 class HttpClient
 {

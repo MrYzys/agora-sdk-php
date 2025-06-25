@@ -1,15 +1,15 @@
 <?php
 
-namespace Agora\RtcSdk\CloudRecording;
+namespace Agora\Sdk\CloudRecording;
 
-use Agora\RtcSdk\Config\AgoraConfig;
-use Agora\RtcSdk\Http\HttpClient;
-use Agora\RtcSdk\Exceptions\AgoraException;
+use Agora\Sdk\Config\AgoraConfig;
+use Agora\Sdk\Http\HttpClient;
+use Agora\Sdk\Exceptions\AgoraException;
 
 /**
  * 云录制客户端
  *
- * @package Agora\RtcSdk\CloudRecording
+ * @package Agora\Sdk\CloudRecording
  */
 class CloudRecordingClient
 {

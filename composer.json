@@ -1,5 +1,5 @@
 {
-    "name": "agora/rtc-server-sdk",
+    "name": "betterus/agora-sdk-php",
     "description": "Agora RTC Server SDK for PHP - 声网RTC服务端SDK",
     "type": "library",
     "keywords": ["agora", "rtc", "video", "audio", "recording", "token"],
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Agora\\RtcSdk\\": "src/"
+            "Agora\\Sdk\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Agora\\RtcSdk\\Tests\\": "tests/"
+            "Agora\\Sdk\\Tests\\": "tests/"
         }
     },
     "scripts": {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Agora\RtcSdk\TokenBuilder;
+namespace Agora\Sdk\TokenBuilder;
 
-use Agora\RtcSdk\Exceptions\AgoraException;
+use Agora\Sdk\Exceptions\AgoraException;
 
 /**
  * RTC Token Builder 2 - 基于Agora AccessToken2
  *
- * @package Agora\RtcSdk\TokenBuilder
+ * @package Agora\Sdk\TokenBuilder
  */
 class RtcTokenBuilder2
 {

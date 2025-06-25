@@ -6,10 +6,10 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Agora\RtcSdk\AgoraRtcSdk;
-use Agora\RtcSdk\CloudRecording\CloudRecordingClient;
-use Agora\RtcSdk\TokenBuilder\RtcTokenBuilder2;
-use Agora\RtcSdk\Exceptions\AgoraException;
+use Agora\Sdk\AgoraSdk;
+use Agora\Sdk\CloudRecording\CloudRecordingClient;
+use Agora\Sdk\TokenBuilder\RtcTokenBuilder2;
+use Agora\Sdk\Exceptions\AgoraException;
 
 // 配置信息（请替换为您的实际配置）
 $config = [
@@ -22,13 +22,13 @@ $config = [
 try {
     // 1. 初始化SDK
     echo "=== 初始化Agora RTC SDK ===\n";
-    $sdk = AgoraRtcSdk::create(
+    $sdk = AgoraSdk::create(
         $config['app_id'],
         $config['app_certificate'],
         $config['customer_id'],
         $config['customer_secret']
     );
-    echo "SDK版本：" . AgoraRtcSdk::getVersion() . "\n\n";
+    echo "SDK版本：" . AgoraSdk::getVersion() . "\n\n";
 
     // 2. 创建房间
     echo "=== 创建房间 ===\n";

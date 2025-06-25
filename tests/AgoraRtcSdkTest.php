@@ -1,12 +1,12 @@
 <?php
 
-namespace Agora\RtcSdk\Tests;
+namespace Agora\Sdk\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Agora\RtcSdk\AgoraRtcSdk;
-use Agora\RtcSdk\Config\AgoraConfig;
-use Agora\RtcSdk\TokenBuilder\RtcTokenBuilder2;
-use Agora\RtcSdk\Exceptions\AgoraException;
+use Agora\Sdk\AgoraSdk;
+use Agora\Sdk\Config\AgoraConfig;
+use Agora\Sdk\TokenBuilder\RtcTokenBuilder2;
+use Agora\Sdk\Exceptions\AgoraException;
 
 /**
  * Agora RTC SDK 测试类
@@ -23,9 +23,9 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testCreateSdk()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
-        $this->assertInstanceOf(AgoraRtcSdk::class, $sdk);
+        $this->assertInstanceOf(AgoraSdk::class, $sdk);
         $this->assertEquals($this->appId, $sdk->getConfig()->getAppId());
         $this->assertEquals($this->appCertificate, $sdk->getConfig()->getAppCertificate());
     }
@@ -35,7 +35,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testCreateSdkWithFullConfig()
     {
-        $sdk = AgoraRtcSdk::create(
+        $sdk = AgoraSdk::create(
             $this->appId,
             $this->appCertificate,
             $this->customerId,
@@ -56,7 +56,7 @@ class AgoraRtcSdkTest extends TestCase
         $this->expectException(AgoraException::class);
         $this->expectExceptionMessage('Invalid Agora configuration');
         
-        AgoraRtcSdk::create('', '');
+        AgoraSdk::create('', '');
     }
 
     /**
@@ -64,7 +64,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testGenerateToken()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
         $token = $sdk->generateToken('test_channel', 12345);
         
@@ -77,7 +77,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testGenerateUserToken()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
         $userToken = $sdk->generateUserToken('test_channel', 12345, true, 3600);
         
@@ -94,7 +94,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testCreateRoom()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
         $room = $sdk->createRoom('test_channel');
         
@@ -110,7 +110,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testInvalidChannelName()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
         $this->expectException(AgoraException::class);
         $this->expectExceptionMessage('Invalid channel name format');
@@ -138,7 +138,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testTokenRoles()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
         // 发布者Token
         $publisherToken = $sdk->generateUserToken('test_channel', 12345, true);
@@ -156,7 +156,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testGenerateTokenWithPrivileges()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
         $token = $sdk->generateTokenWithPrivileges(
             'test_channel',
@@ -177,7 +177,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testSdkVersion()
     {
-        $version = AgoraRtcSdk::getVersion();
+        $version = AgoraSdk::getVersion();
         
         $this->assertIsString($version);
         $this->assertMatchesRegularExpression('/^\d+\.\d+\.\d+$/', $version);
@@ -188,7 +188,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testGetCloudRecordingWithoutFullConfig()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
         $this->expectException(AgoraException::class);
         $this->expectExceptionMessage('Cloud recording requires Customer ID and Customer Secret');
@@ -201,7 +201,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testGetEventParserWithoutFullConfig()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
         $this->expectException(AgoraException::class);
         $this->expectExceptionMessage('Event parser requires Customer Secret for signature verification');
@@ -240,7 +240,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testTokenParameterValidation()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
         // 测试无效的过期时间
         $this->expectException(AgoraException::class);
@@ -253,7 +253,7 @@ class AgoraRtcSdkTest extends TestCase
      */
     public function testCreateRoomWithOptions()
     {
-        $sdk = AgoraRtcSdk::create($this->appId, $this->appCertificate);
+        $sdk = AgoraSdk::create($this->appId, $this->appCertificate);
         
         $options = [
             'admin_uid' => 999,
