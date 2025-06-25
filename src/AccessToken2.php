@@ -35,7 +35,7 @@ class AccessToken2
         }
 
         $signing = $this->getSign();
-        $data = AccessToken2 . phpUtil::packString($this->appId) . Util::packUint32($this->issueTs) . Util::packUint32($this->expire)
+        $data = Util::packString($this->appId) . Util::packUint32($this->issueTs) . Util::packUint32($this->expire)
             . Util::packUint32($this->salt) . Util::packUint16(count($this->services));
 
         ksort($this->services);
@@ -45,7 +45,7 @@ class AccessToken2
 
         $signature = hash_hmac("sha256", $data, $signing, true);
 
-        return AccessToken2 . phpself::getVersion() . base64_encode(zlib_encode(Util::packString($signature) . $data, ZLIB_ENCODING_DEFLATE));
+        return self::getVersion() . base64_encode(zlib_encode(Util::packString($signature) . $data, ZLIB_ENCODING_DEFLATE));
     }
 
     public function getSign()
