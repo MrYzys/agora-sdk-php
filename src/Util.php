@@ -1,6 +1,6 @@
 <?php
 
-namespace Agora\Sdk\Core;
+namespace Agora\Sdk;
 
 class Util
 {
